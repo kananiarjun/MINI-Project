@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gym Store - Products</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+      footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #222831; /* your footer background */
+  color: #eee; /* footer text color */
+  text-align: center;
+  padding: 1rem 0;
+  user-select: none;
+  z-index: 9999; /* make sure it stays on top */
+      }
+  </style>
+</head>
+<body>
+  <!-- <nav>
+    <div><a href="index.html">Gym Store</a></div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="products.html" class="active">Products</a>
+      <a href="cart.html">Cart</a>
+      <a href="order-track.html">Track Order</a>
+      <a href="admin.html">Admin</a>
+      <a href="login.html">Login</a>
+    </div>
+  </nav> -->
+
+  <nav>
+  <div><a href="index.html" class="active_or_not_here"><img src="http://localhost/gym/img/logo.png" alt="Gym Store"></a></div>
+  <div>
+    <a href="index.html" class="active_or_not_here">Home</a>
+    <a href="products.html" class="active">Products</a>
+    <a href="cart.html" class="active_or_not_here">Cart</a>
+    <a href="my-orders.html"  aria-current="page">My Orders</a>
+    <a href="order-track.html" class="active_or_not_here">Track Order</a>
+    <!-- <a href="admin.html" class="active_or_not_here">Admin</a> -->
+    <a href="login.html" class="active_or_not_here">Login</a>
+  </div>
+</nav>
+
+
+  <main class="container">
+    <h1>Products</h1>
+    <div class="products-grid" id="products-list">
+      <!-- Products rendered here -->
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 Gym Store. All rights reserved.
+  </footer>
+
+  <script>
+    // Load products from localStorage or sample initial
+    let products = JSON.parse(localStorage.getItem('products')) || [
+      {id: '1', name:'Yoga Mat', price: 600, image:'data:image/jpeg;base64,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'},
+      {id: '2', name:'Kettlebell (10kg)', price: 1200, image:'https://images.unsplash.com/photo-1599058917760-7ff5348cbb3c?auto=format&fit=crop&w=400&q=80'},
+      {id: '3', name:'Dumbbell (Pair)', price: 1500, image:'https://images.unsplash.com/photo-1517960413843-0aee8e2d471c?auto=format&fit=crop&w=400&q=80'},
+      {id: '4', name:'Resistance Band', price: 350, image:'/rasistance band.jpeg'}
+    ];
+
+    // Save initial products if not present
+    localStorage.setItem('products', JSON.stringify(products));
+
+
+    function renderProducts() {
+      const container = document.getElementById('products-list');
+      container.innerHTML = '';
+      products.forEach(prod => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${prod.image}" alt="${prod.name}" />
+          <div class="product-info">
+            <h4>${prod.name}</h4>
+            <p>₹${prod.price}</p>
+            <button onclick="addToCart('${prod.id}')">Add to Cart</button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function addToCart(id) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let exists = cart.find(item => item.id == id);
+      if (exists) exists.qty += 1;
+      else cart.push({id, qty:1});
+      localStorage.setItem('cart', JSON.stringify(cart));
+      alert('Added to cart!');
+    }
+
+    renderProducts();
+  </script>
+</body>
+</html>
