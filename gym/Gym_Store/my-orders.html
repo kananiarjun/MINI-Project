@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My Orders - Gym Store</title>
+<style>
+  body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+    color: #222831;
+  }
+
+  /* Header Navigation styling */
+  nav {
+    background: #222831;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    flex-wrap: wrap;
+  }
+  nav div:first-child a {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+  }
+  nav div:last-child a {
+    color: white;
+    margin-left: 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: text-decoration 0.3s;
+  }
+  nav div:last-child a:hover {
+    text-decoration: underline;
+    color: #00adb5;
+  }
+  nav div:last-child a.active {
+    text-decoration: underline;
+    color: #00adb5;
+  }
+
+  main.container {
+    max-width: 900px;
+    margin: 3rem auto 5rem;
+    background: white;
+    padding: 2rem 2rem 3rem;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+  }
+
+  h1 {
+    text-align: center;
+    color: #00adb5;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+
+  .order-card {
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 1.5rem 1.7rem;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  }
+
+  .order-header {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+
+  .order-id {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #00adb5;
+  }
+
+  .order-date {
+    color: #666;
+    font-size: 0.95rem;
+  }
+
+  .order-status {
+    font-size: 0.95rem;
+    font-weight: 700;
+    padding: 0.25rem 1rem;
+    border-radius: 20px;
+    color: white;
+  }
+
+  /* Status colors */
+  .status-Placed   { background-color: #f0ad4e; }
+  .status-Confirmed { background-color: #5bc0de; }
+  .status-Shipped  { background-color: #0275d8; }
+  .status-Delivered { background-color: #5cb85c; }
+  .status-Cancelled { background-color: #d9534f; }
+
+  .items-list {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .items-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .items-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid #f3f3f3;
+    font-weight: 600;
+    color: #333;
+  }
+  .items-list li:last-child {
+    border-bottom: none;
+  }
+
+  .qty {
+    background: #00adb5;
+    color: white;
+    border-radius: 16px;
+    padding: 0 0.75rem;
+    font-weight: 700;
+  }
+
+  .cancel-btn {
+    margin-top: 1rem;
+    background-color: #d9534f;
+    border: none;
+    border-radius: 50px;
+    color: white;
+    padding: 0.6rem 1.3rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    display: inline-block;
+  }
+  .cancel-btn:hover:not(:disabled) {
+    background-color: #c9302c;
+  }
+  .cancel-btn:disabled,
+  .cancel-btn[disabled] {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    nav {
+      justify-content: center;
+      gap: 1rem;
+    }
+    .order-header {
+      flex-direction: column;
+      gap: 0.3rem;
+      align-items: flex-start;
+    }
+  }
+    footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #222831; /* your footer background */
+  color: #eee; /* footer text color */
+  text-align: center;
+  padding: 1rem 0;
+  user-select: none;
+  z-index: 9999; /* make sure it stays on top */
+    }
+</style>
+</head>
+<body>
+
+<nav aria-label="Primary Navigation">
+  <div><a href="index.html" aria-current="false"><img src="http://localhost/gym/img/logo.png" alt="Gym Store"></a></div>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="products.html">Products</a>
+    <a href="cart.html">Cart</a>
+    <a href="my-orders.html" class="active" aria-current="page">My Orders</a>
+    <a href="order-track.html">Track Order</a>
+    <!-- <a href="admin.html">Admin</a> -->
+    <a href="login.html">Login</a>
+  </div>
+</nav>
+
+<main class="container" role="main" aria-label="My Orders">
+  <h1>My Orders</h1>
+  <div id="ordersContainer" aria-live="polite" aria-atomic="true">
+    <!-- Orders will be dynamically inserted here -->
+  </div>
+</main>
+
+<footer style="text-align:center; padding: 1rem 0; background:#222831; color:#eee; user-select:none;">
+  &copy; 2025 Gym Store. All rights reserved.
+</footer>
+
+<script>
+  // Possible order status steps order
+  const orderStatuses = ['Placed', 'Confirmed', 'Shipped', 'Delivered', 'Cancelled'];
+
+  // Load orders and products from localStorage
+  let orders = JSON.parse(localStorage.getItem('orders')) || [];
+  const products = JSON.parse(localStorage.getItem('products')) || [];
+
+  const ordersContainer = document.getElementById('ordersContainer');
+
+  function renderOrders() {
+    if (orders.length === 0) {
+      ordersContainer.innerHTML = '<p>You have no orders yet.</p>';
+      return;
+    }
+
+    ordersContainer.innerHTML = orders.map(order => {
+      // Build product items HTML
+      const itemsHtml = order.items.map(item => {
+        const prod = products.find(p => p.id === item.id);
+        const name = prod ? prod.name : 'Unknown Product';
+        return `<li>${name} <span class="qty" aria-label="Quantity">${item.qty}</span></li>`;
+      }).join('');
+
+      // Status badge class
+      const statusClass = 'status-' + order.status;
+
+      // Disable cancel button if delivered or cancelled already
+      const canCancel = !['Delivered', 'Cancelled'].includes(order.status);
+      const cancelDisabledAttr = canCancel ? '' : 'disabled aria-disabled="true"';
+
+      return `
+        <article class="order-card" role="region" aria-labelledby="order-${order.id}">
+          <div class="order-header">
+            <div id="order-${order.id}" class="order-id">Order #${order.id}</div>
+            <div class="order-date">Ordered on: ${order.date}</div>
+            <div class="order-status ${statusClass}" aria-label="Order status: ${order.status}">${order.status}</div>
+          </div>
+          <div class="items-list" aria-label="Ordered items">
+            <ul>${itemsHtml}</ul>
+          </div>
+          <button class="cancel-btn" data-order-id="${order.id}" ${cancelDisabledAttr}>Cancel Order</button>
+        </article>
+      `;
+    }).join('');
+  }
+
+  // Cancel order handler
+  function cancelOrder(orderId) {
+    const index = orders.findIndex(o => o.id === orderId);
+    if (index === -1) return;
+    // Only cancel if not delivered or cancelled
+    if (['Delivered', 'Cancelled'].includes(orders[index].status)) return;
+
+    orders[index].status = 'Cancelled';
+
+    // Save back to localStorage
+    localStorage.setItem('orders', JSON.stringify(orders));
+
+    // Re-render UI
+    renderOrders();
+  }
+
+  // Event delegation for cancel buttons
+  ordersContainer.addEventListener('click', e => {
+    const btn = e.target.closest('.cancel-btn');
+    if (!btn) return;
+    const orderId = btn.getAttribute('data-order-id');
+    if (!orderId) return;
+
+    const confirmCancel = confirm('Are you sure you want to cancel this order?');
+    if (confirmCancel) {
+      cancelOrder(orderId);
+      alert('Your order has been cancelled.');
+    }
+  });
+
+  // On page load
+  document.addEventListener('DOMContentLoaded', () => {
+    // For demo: preload sample data if missing
+    if (!localStorage.getItem('orders')) {
+      const sampleOrders = [
+        {
+          id: '1001',
+          date: '2025-07-20',
+          status: 'Placed',
+          items: [{id: '1', qty: 2}, {id: '3', qty: 1}]
+        },
+        {
+          id: '1002',
+          date: '2025-07-22',
+          status: 'Shipped',
+          items: [{id: '2', qty: 1}]
+        },
+        {
+          id: '1003',
+          date: '2025-07-23',
+          status: 'Delivered',
+          items: [{id: '1', qty: 1}]
+        },
+      ];
+      localStorage.setItem('orders', JSON.stringify(sampleOrders));
+      orders = sampleOrders;
+    }
+
+    if (!localStorage.getItem('products')) {
+      const sampleProducts = [
+        {id: '1', name: 'Yoga Mat'},
+        {id: '2', name: 'Kettlebell (10 kg)'},
+        {id: '3', name: 'Dumbbell (Pair)'}
+      ];
+      localStorage.setItem('products', JSON.stringify(sampleProducts));
+    }
+
+    renderOrders();
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Gym Template">
+    <meta name="keywords" content="Gym, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gym | Master</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
+    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <style>
+        #customize-schedule {
+            display: inline-block;
+            font-size: 14px;
+            padding: 12px 30px;
+            color: #ffffff;
+            background: #f36100;
+            text-transform: uppercase;
+            font-weight: 700;
+            border: none;
+            border-radius: 2px;
+            letter-spacing: 2px;
+            position: relative;
+            z-index: 1;
+            text-decoration: none;
+            margin: 20px 0 40px;
+            transition: all 0.3s;
+        }
+        
+        #customize-schedule:hover {
+            color: #ffffff;
+            background: #d55500;
+        }
+        
+        #customize-schedule:after {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0;
+            content: "";
+            background: #000000;
+            opacity: 0.2;
+            z-index: -1;
+            -webkit-transition: all 0.3s;
+            transition: all 0.3s;
+        }
+        
+        #customize-schedule:hover:after {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Offcanvas Menu Section Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <i class="fa fa-close"></i>
+        </div>
+        <div class="canvas-search search-switch">
+            <i class="fa fa-search"></i>
+        </div>
+        <nav class="canvas-menu mobile-menu">
+            <ul>
+                <li><a href="./index.php">Home</a></li>
+                <li><a href="./about-us.html">About Us</a></li>
+                <li><a href="./class-details.html">Classes</a></li>
+                <li><a href="./services.html">Services</a></li>
+                <li><a href="./team.html">Our Team</a></li>
+                <li><a href="#">Pages</a>
+                    <ul class="dropdown">
+                        <li><a href="./class-timetable.html">Classes timetable</a></li>
+                       
+               
+                    </ul>
+                </li>
+                <li><a href="./contact.php">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Offcanvas Menu Section End -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="logo">
+                        <a href="./index.html">
+                            <img src="img/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="nav-menu">
+                        <ul>
+                            <li><a href="./index.php">Home</a></li>
+                            <li><a href="./about-us.html">About Us</a></li>
+                            <li class="active"><a href="./class-details.html">Classes</a></li>
+                            <li><a href="./services.html">Services</a></li>
+                            <li><a href="./team.html">Our Team</a></li>
+                            <li><a href="#">Pages</a>
+                                <ul class="dropdown">
+                                    <li><a href="./class-timetable.html">Classes timetable</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./contact.php">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            <div class="canvas-open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="img/breadcrumb-bg.jpg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb-text">
+                        <h2>Classes detail</h2>
+                        <div class="bt-option">
+                            <a href="./index.html">Home</a>
+                            <!--<a href="#">Classes</a>-->
+                            <span>Class Details</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Class Details Section Begin -->
+    <section class="class-details-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="class-details-text">
+                        <div class="cd-pic">
+                            <img src="img/classes/class-details/class-detailsl.jpg" alt="">
+                        </div>
+                        <div class="cd-text">
+                            <div class="cd-single-item">
+                                <h3>Body buiding</h3>
+                                <p>Strength isn’t given—it’s earned. Our bodybuilding programs are designed to push you past your limits, sculpt muscle, and redefine what’s possible.
+                                Whether you’re a beginner or a pro, we provide expert guidance, proven techniques, and a no-excuses environment to build the physique you’ve always wanted.</p>
+                            </div>
+                            <div class="cd-single-item">
+                                <h3>Trainer</h3>
+                                <p>Our trainers don’t just teach—they transform. With years of experience, unmatched dedication, and a passion for fitness, they guide you every step of the way.
+                                    Whether you need motivation, technique correction, or a hardcore training plan, we’ve got you covered.</p>
+                            </div>
+                        </div>
+                        <div class="cd-trainer">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="cd-trainer-pic">
+                                        <img src="img/classes/class-details/trainer-profile.jpg" alt="">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="cd-trainer-text">
+                                        <div class="trainer-title">
+                                            <h4>Athart Rachel</h4>
+                                            <span>Gym Trainer</span>
+                                        </div>
+                                        <p>With a deep understanding of fitness and years of experience in training athletes and beginners alike, Athart Rachel is here to push you to your best.
+                                        Whether it's muscle gain, weight loss, or overall fitness, she’ll help you reach your peak</p>
+                                        <ul class="trainer-info">
+                                            <li><span>Age</span>35</li>
+                                            <li><span>Weight</span>148lbs</li>
+                                            <li><span>Height</span>5'6</li>
+                                            
+                                        </ul>
+                                        <p>
+                                        With years of experience in sculpting bodies and strengthening minds, I believe in pushing limits, breaking barriers, and making every rep count. </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-20">
+                    <div class="sidebar-option">
+                        <div class="so-categories">
+                            <h5 class="title">Categories</h5>
+                            <ul>
+                                <li><a href="#">Yoga <span>12</span></a></li>
+                                <li><a href="#">Running <span>32</span></a></li>
+                                <li><a href="#">Weightloss <span>86</span></a></li>
+                                <li><a href="#">Cardio <span>25</span></a></li>
+                                <li><a href="#">Body buiding <span>36</span></a></li>
+                                <li><a href="#">Nutrition <span>15</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Class Details Section End -->
+
+    <!-- Class Timetable Section Begin -->
+    <section class="class-timetable-section class-details-timetable spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="class-timetable details-timetable">
+                      
+                        <div class="row mt-5">
+                            <div class="col-lg-12 text-center">
+                                <a href="class-timetable.html" class="primary-btn btn-normal" id="customize-schedule">
+                                    <span>Time-Table</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Class Timetable Section End -->
+
+    <!-- Get In Touch Section Begin -->
+    <div class="gettouch-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="gt-text">
+                        <i class="fa fa-map-marker"></i>
+                        <p>Atmiya University Kalawad Rd, Rajkot,<br/> GUJ 360004</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gt-text">
+                        <i class="fa fa-mobile"></i>
+                        <ul>
+                            <li>87330 57636</li>
+                            <li>76003 62035</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="gt-text email">
+                        <i class="fa fa-envelope"></i>
+                        <p>aak509694@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Get In Touch Section End -->
+
+
+    <!-- Footer Section Begin -->
+    <section class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="fs-about">
+                        <div class="fa-logo">
+                            <a href="#"><img src="img/logo.png" alt=""></a>
+                        </div>
+                        <p>Where strength is built, and limits are shattered. Show up, put in the work, and own your progress.💪🔥</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6">
+                    <div class="fs-widget">
+                        <h4>Useful links</h4>
+                        <ul>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="class-timetable.html">Time-Table</a></li>
+                            <li><a href="contact.php">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="fs-widget">
+                        <h4>Tips & Guides</h4>
+                        <div class="fw-recent">
+                            <h6><a href="#">Physical fitness may help prevent depression, anxiety</a></h6>
+                            
+                        </div>
+                        <div class="fw-recent">
+                            <h6><a href="#">Fitness: The best exercise to lose belly fat and tone up...</a></h6>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="copyright-text">
+                        <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer Section End -->
+
+    <!-- Search model Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+
+    <!-- Js Plugins -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/masonry.pkgd.min.js"></script>
+    <script src="js/jquery.barfiller.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+
+</body>
+
+</html>
