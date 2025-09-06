@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gym Timetable</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: -10px;
+        }
+        .col-lg-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 10px;
+        }
+        .class-timetable {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th, td {
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+        th {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            font-weight: 600;
+        }
+        td {
+            background: #f9f9f9;
+            transition: background 0.3s ease;
+        }
+        td:hover {
+            background: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        .dark-bg {
+            background: #ffd700;
+            color: black;
+        }
+        .hover-bg:hover {
+            background: #28a745 !important;
+            color: white;
+        }
+        .class-time {
+            font-weight: 500;
+            color: #007bff;
+        }
+        .blank-td {
+            background: #f4f4f4;
+        }
+        .ts-meta h5 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .ts-meta span {
+            font-size: 14px;
+            color: #555;
+        }
+        .fas {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="class-timetable">
+                <table>
+                    <thead>
+                        <tr>
+                            <th><i class="fas fa-clock"></i>Time</th>
+                            <th><i class="fas fa-calendar-day"></i>Monday</th>
+                            <th><i class="fas fa-calendar-day"></i>Tuesday</th>
+                            <th><i class="fas fa-calendar-day"></i>Wednesday</th>
+                            <th><i class="fas fa-calendar-day"></i>Thursday</th>
+                            <th><i class="fas fa-calendar-day"></i>Friday</th>
+                            <th><i class="fas fa-calendar-day"></i>Saturday</th>
+                            <th><i class="fas fa-calendar-day"></i>Sunday</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="class-time">6.00am - 8.00am</td>
+                            <td class="dark-bg hover-bg ts-meta" data-tsmeta="workout">
+                                <h5>WEIGHT LOOSE</h5>
+                                <span>RLefew D. Loee</span>
+                            </td>
+                            <td class="hover-bg ts-meta" data-tsmeta="fitness">
+                                <h5>Cardio</h5>
+                                <span>RLefew D. Loee</span>
+                            </td>
+                            <td class="dark-bg hover-bg ts-meta" data-tsmeta="workout">
+                                <h5>Yoga</h5>
+                                <span>Keaf Shen</span>
+                            </td>
+                            <td class="hover-bg ts-meta" data-tsmeta="fitness">
+                                <h5>Fitness</h5>
+                                <span>Kimberly Stone</span>
+                            </td>
+                            <td class="dark-bg blank-td"></td>
+                            <td class="hover-bg ts-meta" data-tsmeta="motivation">
+                                <h5>Boxing</h5>
+                                <span>Rachel Adam</span>
+                            </td>
+                            <td class="blank-td"></td>
+                        </tr>
+                        <tr>
+                            <td class="class-time">10.00am - 12.00am</td>
+                            <td class="blank-td"></td>
+                            <td class="dark-bg hover-bg ts-meta" data-tsmeta="fitness">
+                                <h5>Fitness</h5>
+                                <span>Kimberly Stone</span>
+                            </td>
+                            <td class="hover-bg ts-meta" data-tsmeta="workout">
+                                <h5>WEIGHT LOOSE</h5>
+                                <span>RLefew D. Loee</span>
+                            </td>
+                            <td class="dark-bg hover-bg ts-meta" data-tsmeta="motivation">
+                                <h5>Cardio</h5>
+                                <span>RLefew D. Loee</span>
+                            </td>
+                            <td class="hover-bg ts-meta" data-tsmeta="workout">
+                                <h5>Body Building</h5>
+                                <span>Robert Cage</span>
+                            </td>
+                            <td class="dark-bg hover-bg ts-meta" data-tsmeta="motivation">
+                                <h5>Karate</h5>
+                                <span>Donald Grey</span>
+                            </td>
+                            <td class="blank-td"></td>
+                        </tr>
+                        <tr>
+                            <td class="class-time">5.00pm - 7.00pm</td>
+                            <td class="dark-bg hover-bg ts-meta" data-tsmeta="fitness">
+                                <h5>Boxing</h5>
+                                <span>Rachel Adam</span>
+                            </td>
+                            <td class="hover-bg ts-meta" data-tsmeta="motivation">
+                                <h5>Karate</h5>
+                                <span>Donald Grey</span>
+                            </td>
+                            <td class="dark-bg hover-bg ts-meta" data-tsmeta="workout">
+                                <h5>Body Building</h5>
+                                <span>Robert Cage</span>
+                            </td>
+                            <td class="blank-td"></td>
+                            <td class="dark-bg hover-bg ts-meta" data-tsmeta="workout">
+                                <h5>Yoga</h5>
+                                <span>Keaf Shen</span>
+                            </td>
+                            <td class="hover-bg ts-meta" data-tsmeta="motivation">
+                                <h5>Cardio</h5>
+                                <span>RLefew D. Loee</span>
+                            </td>
+                            <td class="blank-td"></td>
+                        </tr>
+                        <tr>
+                            <td class="class-time">7.00pm - 9.00pm</td>
+                            <td class="hover-bg ts-meta" data-tsmeta="motivation">
+                                <h5>Cardio</h5>
+                                <span>RLefew D. Loee</span>
+                            </td>
+                            <td class="dark-bg blank-td"></td>
+                            <td class="hover-bg ts-meta" data-tsmeta="fitness">
+                                <h5>Boxing</h5>
+                                <span>Rachel Adam</span>
+                            </td>
+                            <td class="dark-bg hover-bg ts-meta" data-tsmeta="workout">
+                                <h5>Yoga</h5>
+                                <span>Keaf Shen</span>
+                            </td>
+                            <td class="hover-bg ts-meta" data-tsmeta="motivation">
+                                <h5>Karate</h5>
+                                <span>Donald Grey</span>
+                            </td>
+                            <td class="dark-bg hover-bg ts-meta" data-tsmeta="fitness">
+                                <h5>Boxing</h5>
+                                <span>Rachel Adam</span>
+                            </td>
+                            <td class="blank-td"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
