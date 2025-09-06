@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gym Store - Cart</title>
+  <link rel="stylesheet" href="style.css"/>
+  <style>
+      footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #222831; /* your footer background */
+  color: #eee; /* footer text color */
+  text-align: center;
+  padding: 1rem 0;
+  user-select: none;
+  z-index: 9999; /* make sure it stays on top */
+      }
+  </style>
+</head>
+<body>
+  <nav>
+    <div><a href="index.html"><img src="http://localhost/gym/img/logo.png" alt="Gym Store"></a></div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="cart.html" class="active">Cart</a>
+      <a href="my-orders.html"  aria-current="page">My Orders</a>
+      <a href="order-track.html">Track Order</a>
+      <!-- <a href="admin.html">Admin</a> -->
+      <a href="login.html">Login</a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <h1>Your Cart</h1>
+    <div id="cart-list"></div>
+    <div id="cart-total"></div>
+  </main>
+
+  <footer>
+    &copy; 2025 Gym Store. All rights reserved.
+  </footer>
+
+  <script>
+    let products = JSON.parse(localStorage.getItem('products')) || [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function renderCart() {
+      const list = document.getElementById('cart-list');
+      let total = 0;
+      if(cart.length === 0){
+        list.innerHTML = `<p>Your cart is empty.</p>`;
+        document.getElementById('cart-total').innerHTML = '';
+        return;
+      }
+      let html = '';
+      cart.forEach(item => {
+        const prod = products.find(p => p.id == item.id);
+        if(prod){
+          html += `
+            <div class="cart-item">
+              <img src="${prod.image}" alt="${prod.name}"/>
+              <span>${prod.name} (x${item.qty})</span>
+              <span>₹${prod.price*item.qty}</span>
+              <button class="danger" onclick="removeItem('${item.id}')">Remove</button>
+            </div>
+          `;
+          total += prod.price * item.qty;
+        }
+      });
+      list.innerHTML = html;
+      document.getElementById('cart-total').innerHTML =
+        `<h3>Total: ₹${total}</h3><button onclick="checkout()">Checkout</button>`;
+    }
+
+    function removeItem(id){
+      cart = cart.filter(item => item.id != id);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    function checkout(){
+      if(cart.length === 0){
+        alert('Cart is empty');
+        return;
+      }
+      // Save order with id, status, date and items
+      let orders = JSON.parse(localStorage.getItem('orders')) || [];
+      let orderId = 'GSO' + Date.now();
+      let order = {
+        id: orderId,
+        items: cart,
+        status: "Placed",
+        date: new Date().toLocaleString()
+      };
+      orders.push(order);
+      localStorage.setItem('orders', JSON.stringify(orders));
+
+      alert("Thank you for your purchase! Your order ID is " + orderId);
+      cart = [];
+      localStorage.setItem('cart', JSON.stringify(cart));
+      renderCart();
+    }
+
+    renderCart();
+  </script>
+</body>
+</html>
